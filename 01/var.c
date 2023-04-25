@@ -1,3 +1,4 @@
+#include <stdio.h>
 int main(int argc, char const *argv[]) {
 int a; // aを宣⾔
 a = 1; // aに1を代⼊
