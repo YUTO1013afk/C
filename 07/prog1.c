@@ -2,9 +2,11 @@
 void func_a(void) {
     printf("Called func_a()\n");
 }
+
 void func_b(void) {
     printf("Called func_b()\n");
 }
+
 int main(void) {
     char input;                             // 入力された⽂字を格納する変数
     printf("Enter a or b: ");               // ⽂字の入力を促す
