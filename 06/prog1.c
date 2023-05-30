@@ -13,11 +13,11 @@ int main() {
 }
 
 int findMax(int *arr, int size) {
-    int max = arr[0];
+    int *max = arr;
     for (int i = 1; i < size; i++) {
-        if (arr[i] > max) {
-            max = arr[i];
+        if (*(arr + i) > *max) {
+            max = arr + i;
         }
     }
-    return max;
+    return *max;
 }
