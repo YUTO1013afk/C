@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 void func_a(void) {
     printf("Called func_a()\n");
 }
