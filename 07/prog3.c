@@ -31,7 +31,7 @@ int str2int(char *str) {
     // ⽂字列の各桁を数値に変換して num に加算する
     for (int i = 0; i < len; i++) {
         // ⽂字が '0' から '9' の範囲内でなければエラーとする
-        if (str[i] < '0' || str[i] > '9') {
+        if (str[i] >= '0' || str[i] > '9') {
             printf("エラー: 数字以外の⽂字が含まれています。\n");
             return 0;
         }
