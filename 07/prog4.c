@@ -6,9 +6,11 @@ int main(int argc, char const *argv[]) {
     char str1[20] = "12345";
     char str2[20] = "+12345";
     char str3[20] = "-12345";
+
     printf("%s => %d\n", str1, str2int(str1));
     printf("%s => %d\n", str2, str2int(str2));
     printf("%s => %d\n", str3, str2int(str3));
+
     return 0;
 }
 
