@@ -21,7 +21,7 @@ int main() {
     Rectangle rect;
 
     // 標準入力から長方形の情報を入力
-    printf("長方形の情報を入力してください\n");
+    printf("長方形の幅と高さを入力してください\n");
     printf("幅: ");
     scanf("%lf", &rect.width); // 実数は %lf 変換指定子と変数のアドレスで入力
     printf("高さ: ");
