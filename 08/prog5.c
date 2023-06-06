@@ -15,7 +15,7 @@ int main() {
     // 標準入力から本の情報を入力
     printf("本の情報を⼊⼒してください\n");
     printf("タイトル: ");
-    scanf("%49s", books[0].title); // 文字列は %s 変換指定子と配列名で入力
+    scanf("%49s", books[0].title);
     printf("著者名: ");
     scanf("%49s", books[0].author);
     printf("出版年: ");
@@ -36,7 +36,7 @@ int main() {
 
     // 配列 books の各要素から本の情報を表示
     printf("== 本の情報 ==\n");
-    for (int i = 0; i < 1; i++) {                 // 入力した回数だけループする
+    for (int i = 0; i < 1; i++) {
         printf("タイトル: %s\n", books[i].title); // 配列の要素に直接アクセスする
         printf("著者名: %s\n", books[i].author);
         printf("出版年: %d\n", books[i].year);
