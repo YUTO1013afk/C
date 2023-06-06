@@ -41,7 +41,6 @@ int main() {
         printf("著者名: %s\n", books[i].author);
         printf("出版年: %d\n", books[i].year);
         printf("価格: %.2f 円\n", books[i].price);
-        printf("\n");
     }
 
     return 0;
