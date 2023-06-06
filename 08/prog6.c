@@ -22,9 +22,30 @@ int divide(int x, int y) {
     return x / y;
 }
 
+// 文字列が数字だけからなるかどうかチェックする関数
+int is_number(char *str) {
+    // 文字列の長さを取得する
+    int len = strlen(str);
+    // for文で文字列の先頭から最後まで順番にアクセスし、各文字が'0'から'9'の範囲にあるかどうか判定する
+    for (int i = 0; i < len; i++) {
+        // 文字が'0'から'9'の範囲になければ、0を返す
+        if (str[i] < '0' || str[i] > '9') {
+            return 0;
+        }
+    }
+    // 全て数字なら、1を返す
+    return 1;
+}
+
 int main(int argc, char **argv) {
     // コマンドライン引数が4つあるかどうかチェックする
     if (argc == 4) {
+        // argv[2]とargv[3]が数字だけからなる文字列かどうかチェックする
+        if (!is_number(argv[2]) || !is_number(argv[3])) {
+            // 数字でない場合はエラーメッセージを出力して終了する
+            printf("引数には数字のみを入力してください\n");
+            return 1;
+        }
         // argv[2]とargv[3]を整数に変換する
         int x = atoi(argv[2]);
         int y = atoi(argv[3]);
