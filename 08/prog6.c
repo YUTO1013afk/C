@@ -23,9 +23,19 @@ int main() {
     // 標準入力から長方形の情報を入力
     printf("長方形の幅と高さを入力してください\n");
     printf("幅: ");
-    scanf("%lf", &rect.width); // 実数は %lf 変換指定子と変数のアドレスで入力
+    // scanf の戻り値をチェック
+    while (scanf("%lf", &rect.width) != 1 || rect.width <= 0) {
+        printf("正の実数を入力してください\n"); // エラーメッセージを表示
+        while (getchar() != '\n'); // バッファをクリア
+        printf("幅: ");
+    }
     printf("高さ: ");
-    scanf("%lf", &rect.height);
+    // scanf の戻り値をチェック
+    while (scanf("%lf", &rect.height) != 1 || rect.height <= 0) {
+        printf("正の実数を入力してください\n"); // エラーメッセージを表示
+        while (getchar() != '\n'); // バッファをクリア
+        printf("高さ: ");
+    }
     printf("\n");
 
     // 関数 calcArea と calcPerimeter を呼び出して面積と周囲の長さを表示
