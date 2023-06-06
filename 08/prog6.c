@@ -29,7 +29,7 @@ int main() {
     printf("\n");
 
     // 関数 calcArea と calcPerimeter を呼び出して面積と周囲の長さを表示
-    printf("== 長方形の情報 ==\n");
+    printf("== 計算結果 ==\n");
     printf("面積: %.2f\n", calcArea(&rect));            // 変数 rect のアドレスを渡す
     printf("周囲の長さ: %.2f\n", calcPerimeter(&rect)); // 変数 rect のアドレスを渡す
 
