@@ -19,9 +19,19 @@ int main() {
     printf("著者名: ");
     scanf("%49s", books[0].author);
     printf("出版年: ");
-    scanf("%d", &books[0].year);
+    // scanf の戻り値をチェック
+    while (scanf("%d", &books[0].year) != 1 || books[0].year <= 0) {
+        printf("正の整数を入力してください\n"); // エラーメッセージを表示
+        while (getchar() != '\n'); // バッファをクリア
+        printf("出版年: ");
+    }
     printf("価格: ");
-    scanf("%f", &books[0].price);
+    // scanf の戻り値をチェック
+    while (scanf("%f", &books[0].price) != 1 || books[0].price <= 0) {
+        printf("正の整数を入力してください\n"); // エラーメッセージを表示
+        while (getchar() != '\n'); // バッファをクリア
+        printf("価格: ");
+    }
     printf("\n");
 
     // 配列 books の各要素から本の情報を表示
