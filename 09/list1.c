@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 // 単⽅向リストの要素を表す構造体
 typedef struct Node {
     int data;
