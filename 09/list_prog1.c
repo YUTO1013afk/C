@@ -82,6 +82,7 @@ void display(struct Node *head) {
         current = current->next;                                                                                                                                                           // 次のノードに移動する
     }
 }
+
 void total(struct Node *head) {
     struct Node *current = head;                                                                                                                                                                                                                                      // 先頭ノードから始める
     printf("No\t⽒名\t国語\t数学\t英語\t得点計\t現在のアドレス\t次のアドレス\n");                                                                                                                                                                                        // ヘッダーを出力する
