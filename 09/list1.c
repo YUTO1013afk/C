@@ -29,14 +29,16 @@ Node *createNode(int data) {
 }
 void append(Node *head, Node *newNode) {
     Node *current = head;
+
     // 終わりのNodeを探す
+    while (current->next != NULL) {
+        current = current->next;
+    }
 
-
-
-    // 新しいNodoを追加する
-
-    
+    // 新しいNodeを追加する
+    current->next = newNode;
 }
+
 void display(Node *head) {
     Node *current = head;
     printf("現在のアドレス\t次のアドレス\t値\n");
