@@ -6,6 +6,7 @@ typedef struct Node {
     int data;
     struct Node *next;
 } Node;
+
 // プロトタイプ宣⾔
 Node *createNode(int);
 void append(Node *, Node *);
@@ -22,12 +23,14 @@ int main(int argc, char const *argv[]) {
     display(head);
     return 0;
 }
+
 Node *createNode(int data) {
     Node *newNode = (Node *)malloc(sizeof(Node));
     newNode->data = data;
     newNode->next = NULL;
     return newNode;
 }
+
 void append(Node *head, Node *newNode) {
     Node *current = head;
 
