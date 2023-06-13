@@ -26,14 +26,16 @@ int main() {
     // scanf の戻り値をチェック
     while (scanf("%lf", &rect.width) != 1 || rect.width <= 0) {
         printf("正の実数を入力してください\n"); // エラーメッセージを表示
-        while (getchar() != '\n'); // バッファをクリア
+        while (getchar() != '\n')
+            ; // バッファをクリア
         printf("幅: ");
     }
     printf("高さ: ");
     // scanf の戻り値をチェック
     while (scanf("%lf", &rect.height) != 1 || rect.height <= 0) {
         printf("正の実数を入力してください\n"); // エラーメッセージを表示
-        while (getchar() != '\n'); // バッファをクリア
+        while (getchar() != '\n')
+            ; // バッファをクリア
         printf("高さ: ");
     }
     printf("\n");

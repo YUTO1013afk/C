@@ -22,14 +22,16 @@ int main() {
     // scanf の戻り値をチェック
     while (scanf("%d", &books[0].year) != 1 || books[0].year <= 0) {
         printf("正の整数を入力してください\n"); // エラーメッセージを表示
-        while (getchar() != '\n'); // バッファをクリア
+        while (getchar() != '\n')
+            ; // バッファをクリア
         printf("出版年: ");
     }
     printf("価格: ");
     // scanf の戻り値をチェック
     while (scanf("%f", &books[0].price) != 1 || books[0].price <= 0) {
         printf("正の整数を入力してください\n"); // エラーメッセージを表示
-        while (getchar() != '\n'); // バッファをクリア
+        while (getchar() != '\n')
+            ; // バッファをクリア
         printf("価格: ");
     }
     printf("\n");
