@@ -49,11 +49,18 @@ void insert(Node *head, Node *newNode, int data) {
 }
 
 // リストからノードを削除する関数
-void delete(Node *head, int data) {
-    Node *current = head;
+void delete(Node **head, int data) {
+    Node *current = *head;
     Node *previous = NULL;
 
-    // 先頭のノードは削除できないので、次のノードから探索開始
+    // 先頭のノードを削除する場合
+    if (current != NULL && current->data == data) {
+        *head = current->next;
+        free(current);
+        return;
+    }
+
+    // 先頭以外のノードを削除する場合
     while (current != NULL && current->data != data) {
         previous = current;
         current = current->next;
@@ -61,9 +68,7 @@ void delete(Node *head, int data) {
 
     // 見つかったノードを削除する
     if (current != NULL) {
-        if (previous != NULL) {
-            previous->next = current->next;
-        }
+        previous->next = current->next;
         free(current);
     }
 }
@@ -105,10 +110,10 @@ int main(int argc, char const *argv[]) {
     insert(head, data, 999);
     display(head);
     printf("途中を削除\n");
-    delete (head, 100);
+    delete (&head, 100);
     display(head);
     printf("先頭を削除\n");
-    delete (head, 20);
+    delete (&head, 20);
     display(head);
 
     return 0;
