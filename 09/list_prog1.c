@@ -75,8 +75,8 @@ void append(struct Node *head, struct Node *node) {
 }
 
 void display(struct Node *head) {
-    struct Node *current = head;                                                                                                                                                            // 先頭ノードから始める
-    printf("No\t⽒名\t国語\t数学\t英語\t現在のアドレス\t次のアドレス\n");                                                                                                                      // ヘッダーを出力する
+    struct Node *current = head;                                                                                                                                                           // 先頭ノードから始める
+    printf("No\t⽒名\t国語\t数学\t英語\t現在のアドレス\t次のアドレス\n");                                                                                                                  // ヘッダーを出力する
     while (current != NULL) {                                                                                                                                                              // 現在のノードがNULLでない間繰り返す
         printf("%d\t%s\t%d\t%d\t%d\t%p\t%p\n", current->data.class_number, current->data.name, current->data.japanese, current->data.math, current->data.english, current, current->next); // 現在のノードのデータとアドレスを出力する
         current = current->next;                                                                                                                                                           // 次のノードに移動する
@@ -84,8 +84,8 @@ void display(struct Node *head) {
 }
 
 void total(struct Node *head) {
-    struct Node *current = head;                                                                                                                                                                                                                                      // 先頭ノードから始める
-    printf("No\t⽒名\t国語\t数学\t英語\t得点計\t現在のアドレス\t次のアドレス\n");                                                                                                                                                                                        // ヘッダーを出力する
+    struct Node *current = head;                                                                                                                                                                                                                                    // 先頭ノードから始める
+    printf("No\t⽒名\t国語\t数学\t英語\t得点計\t現在のアドレス\t次のアドレス\n");                                                                                                                                                                                   // ヘッダーを出力する
     while (current != NULL) {                                                                                                                                                                                                                                       // 現在のノードがNULLでない間繰り返す
         printf("%d\t%s\t%d\t%d\t%d\t%d\t%p\t%p\n", current->data.class_number, current->data.name, current->data.japanese, current->data.math, current->data.english, current->data.japanese + current->data.math + current->data.english, current, current->next); // 番号、⽒名、各科目の点数、合計点、アドレスを出力する
         current = current->next;                                                                                                                                                                                                                                    // 次のノードに移動する
