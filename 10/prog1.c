@@ -5,7 +5,7 @@
 
 int main(int argc, char const *argv[]) {
     FILE *fp;
-    if ((fp = fopen("prog1.c", "r")) == NULL) {
+    if ((fp = fopen("file01.c", "r")) == NULL) {
         printf("ファイルを開けませんでした。\n");
         exit(2);
     }
