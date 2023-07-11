@@ -8,11 +8,15 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 
-#define SERVER_ADDR "127.0.0.1"
-#define SERVER_PORT 60001
 #define BUF_SIZE 4096
 
 int main(int argc, char const *argv[]) {
+    // コマンドライン引数のチェック
+    if (argc < 3) {
+        fprintf(stderr, "Usage: %s ip_address port_number\n", argv[0]);
+        exit(1);
+    }
+
     // ソケットオブジェクトの作成
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0) {
@@ -24,8 +28,9 @@ int main(int argc, char const *argv[]) {
     struct sockaddr_in server_addr;
     memset(&server_addr, 0, sizeof(server_addr));
     server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(SERVER_PORT);
-    server_addr.sin_addr.s_addr = inet_addr(SERVER_ADDR);
+    // コマンドライン引数からIPアドレスとポート番号を取得する
+    server_addr.sin_port = htons(atoi(argv[2]));
+    server_addr.sin_addr.s_addr = inet_addr(argv[1]);
 
     if (connect(sockfd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
         perror("connect");
@@ -34,7 +39,7 @@ int main(int argc, char const *argv[]) {
 
     // サーバからデータを受信する
     char buffer[BUF_SIZE];
-    int n = recv(sockfd, buffer, sizeof(buffer)-1, 0);
+    int n = recv(sockfd, buffer, sizeof(buffer) - 1, 0);
     if (n < 0) {
         perror("recv");
         exit(1);

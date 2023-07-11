@@ -13,11 +13,15 @@
 // close()
 #include <unistd.h>
 
-#define SERVER_ADDR "127.0.0.1"
-#define SERVER_PORT 60001
 #define BUF_SIZE 4096
 
 int main(int argc, char const *argv[]) {
+    // コマンドライン引数のチェック
+    if (argc < 3) {
+        fprintf(stderr, "Usage: %s ip_address port_number\n", argv[0]);
+        exit(1);
+    }
+
     // ソケットオブジェクトの作成
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0) {
@@ -37,8 +41,9 @@ int main(int argc, char const *argv[]) {
     struct sockaddr_in addr;
     memset(&addr, 0, sizeof(addr));
     addr.sin_family = AF_INET;
-    addr.sin_port = htons(SERVER_PORT);
-    addr.sin_addr.s_addr = inet_addr(SERVER_ADDR);
+    // コマンドライン引数からIPアドレスとポート番号を取得する
+    addr.sin_port = htons(atoi(argv[2]));
+    addr.sin_addr.s_addr = inet_addr(argv[1]);
     if (bind(sockfd, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
         perror("bind");
         exit(1);
