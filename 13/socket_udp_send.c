@@ -16,10 +16,14 @@ int main(int argc, char const *argv[]) {
         server_ip = argv[1];
     }
     int sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+    // ソケットをブロードキャストに対応させる
+    int optval = 1;
+    setsockopt(sockfd, SOL_SOCKET, SO_BROADCAST, &optval, sizeof(optval));
     struct sockaddr_in addr;
     addr.sin_family = AF_INET;
     addr.sin_port = htons(SERVER_PORT);
-    inet_pton(AF_INET, server_ip, &addr.sin_addr.s_addr);
+    // ブロードキャストアドレスを指定する
+    inet_pton(AF_INET, "255.255.255.255", &addr.sin_addr.s_addr);
     char message[] = "Hello, World";
     ssize_t n;
     n = sendto(sockfd, message, strlen(message), 0, (struct sockaddr *)&addr, sizeof(addr));
