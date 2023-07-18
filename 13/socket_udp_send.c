@@ -6,10 +6,10 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <unistd.h>
-#define SERVER_PORT 60002
+#define SERVER_PORT 60003
 void usage(const char *);
 int main(int argc, char const *argv[]) {
-    const char *server_ip;
+    s const char *server_ip;
     if (argc != 2) {
         usage(argv[0]);
     } else {
@@ -23,7 +23,7 @@ int main(int argc, char const *argv[]) {
     addr.sin_family = AF_INET;
     addr.sin_port = htons(SERVER_PORT);
     // ブロードキャストアドレスを指定する
-    inet_pton(AF_INET, "255.255.255.255", &addr.sin_addr.s_addr);
+    // inet_pton(AF_INET, "255.255.255.255", &addr.sin_addr.s_addr);
     char message[] = "Hello, World";
     ssize_t n;
     n = sendto(sockfd, message, strlen(message), 0, (struct sockaddr *)&addr, sizeof(addr));
