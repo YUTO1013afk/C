@@ -4,3 +4,4 @@
 10_src/list_prog1.c
 10_src/libcsv-3.0.3.tar.gz
 .vscode/settings.json
+.vscode/c_cpp_properties.json
